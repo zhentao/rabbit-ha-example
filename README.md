@@ -24,11 +24,21 @@ Configure 2-node rabbit cluster on a Mac machine:
 	```
 7. under folder rabbit2, run the following commands to join cluster rabbit1:
 
-	```sbin/rabbitmq-server
+	```
+	sbin/rabbitmq-server
 	sbin/rabbitmqctl stop_app
 	sbin/rabbitmqctl join_cluster rabbit1@localhost
 	sbin/rabbitmqctl start_app
 	```
+ or to auto configure the cluster for fresh nodes, create file rabbitmq.config under folder etc/rabbitmq for both nodes with the following:
+ 
+ 	```
+ 	[
+	    {rabbit, [
+	        {cluster_nodes, {['rabbit1@localhost', 'rabbit2@localhost'], disc}}
+	    ]}
+	].
+ 	```
 8. run the following command under either rabbit1 or rabbit2 to show the cluster status:
 
 	```
