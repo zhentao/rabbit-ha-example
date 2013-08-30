@@ -37,10 +37,10 @@ Configure 2-node rabbit cluster on a Mac machine:
 	
 Setup Highly Available Queues:
 
-1. run the following command under either rabbit1 or rabbit2:
+1. run the following command under either rabbit1 or rabbit2 to make sure all queues (except those with auto-generated names) are mirrored across all nodes:
 
 	```
-	sbin/rabbitmqctl set_policy ha-all "\." '{"ha-mode":"all"}'
+	sbin/rabbitmqctl set_policy ha-all '^(?!amq\.).*' '{"ha-mode":"all"}'
 	```
 	
 This will configure all queues in this cluster are mirrored queues.  See rabbitmq document for details.

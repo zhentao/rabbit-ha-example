@@ -1,8 +1,5 @@
 package com.zhentao.amqp.example.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
@@ -55,9 +52,7 @@ public abstract class RabbitConfig {
     @Bean
     // Every queue is bound to the default direct exchange
     public Queue employeeQueue() {
-        Map<String, Object> arguments = new HashMap<String, Object>();
-        arguments.put("x-ha-policy", "all");
-        return new Queue(this.employeeQueueName, true, false, false, arguments);
+        return new Queue(this.employeeQueueName);
     }
 
     @Bean
