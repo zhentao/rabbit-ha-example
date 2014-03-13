@@ -11,7 +11,7 @@ Configure 2-node rabbit cluster on a Mac machine:
 	NODE_PORT=5672
 	NODENAME=rabbit1@localhost
 	```
-5. create file rabbitmq-env.conf unser rabbit2/etc/rabbitmq/ with the following content:
+5. create file rabbitmq-env.conf under rabbit2/etc/rabbitmq/ with the following content:
 
 	```
 	NODE_PORT=5673
